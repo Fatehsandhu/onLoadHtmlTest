@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+
+  <title>OSD600: Lab 11</title>
+  <meta name='author' content='Svitlana Galianova'>
+</head>
+
+<body>
+  <h1 id='text'>First onLoad</h1>
+  <img id='img'></img>
+
+  <p>
+    <button id='button'>Click Me</button>
+  </p>
+
+  <script>
+    var counter = 0;
+
+    var text   = document.querySelector('#text');
+    var img    = document.querySelector('#img');
+    var button = document.querySelector('#button');
+
+    function changeColor(color){document.body.style.backgroundColor = color;}
+    
+    img.onload = function loaded(){
+      counter++;//to check # of loads
+      if (counter > 1){
+        text.innerHTML = 'onLoad happened more than once';
+        changeColor('lightblue');
+      }
+      else changeColor('lightpink');
+    }
+
+    img.src = 'img.png';
+
+    button.onclick = function loadImage(){
+      img.src = 'img.png';
+    }
+  </script>
+
+</body>
+</html>
